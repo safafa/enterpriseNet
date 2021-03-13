@@ -53,13 +53,16 @@ class Header extends Component {
                             <NavItem>
                                 <NavLink className="nav-link" to='/logout'><span className="fa fa-address-card fa-lg"></span><SignOutIcon size={24} /></NavLink>
                              </NavItem>
+                             <NavItem>
+                                <NavLink className="nav-link" to='/signup'><span className="fa fa-address-card fa-lg"></span>Signup</NavLink>
+                                </NavItem>
                             </Nav>
                          {  /* <Nav>
                                 <NavItem>
                                 <NavLink className="nav-link" to='/login'><span className="fa fa-address-card fa-lg"></span><SignInIcon size={24} /></NavLink>
                                 </NavItem>
                                 <NavItem>
-                                <NavLink className="nav-link" to='/contactus'><span className="fa fa-address-card fa-lg"></span>Signup</NavLink>
+                                <NavLink className="nav-link" to='/signup'><span className="fa fa-address-card fa-lg"></span>Signup</NavLink>
                                 </NavItem>
                          </Nav>*/}
                             </Nav>

@@ -3,9 +3,9 @@ import {BrowserRouter} from 'react-router-dom';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import { Provider } from 'react-redux';
-import {ConfigureStore} from './redux/configureStore';
-import Main from "./components/MainComponent"
-const store = ConfigureStore();
+import {store} from './redux/configureStore';
+import Main from "./components/MainComponent";
+
 
 class App extends Component {
   constructor(props){
@@ -13,13 +13,14 @@ class App extends Component {
   }
   render(){
     return (
-      <Provider store={store}>
       <BrowserRouter> 
       <div >
+      <Provider store={store}>
         <Main/>
+        </Provider>
       </div>
       </BrowserRouter>
-     </Provider>
+     
   );
   }
   

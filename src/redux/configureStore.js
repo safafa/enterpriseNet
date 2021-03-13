@@ -1,7 +1,18 @@
-import {createStore} from 'redux';
+import {createStore, applyMiddleware} from 'redux';
 import {Reducer, initialState} from './reducer';
+import {
+    combineForms,
+    createForms // optional
+  } from 'react-redux-form';
 
-export const ConfigureStore = () =>{
-    const store = createStore(Reducer,initialState);
-    return store;
-}
+const initialUserState = {
+    firstName: '',
+    lastName: '',
+    email:'',
+    username:'',
+    password:''
+
+  };
+  export const store = createStore(combineForms({
+    user: initialUserState,
+  }));
