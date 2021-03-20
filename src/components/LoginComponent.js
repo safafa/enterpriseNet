@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import {Row, Label, Col, Button, CardHeader, CardBody,Card} from 'reactstrap';
-import {Control, LocalForm, Errors} from 'react-redux-form';
+import {Row, Label, CardTitle, Button, FormGroup, CardBody,Card} from 'reactstrap';
+import {Control, Form, Errors} from 'react-redux-form';
 
 const required = (val) => val && val.length;
 
@@ -10,38 +10,33 @@ class Login extends Component{
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleSubmit(values) {
-        console.log('LOgin information: ' + JSON.stringify(values));
-        alert('Login information: ' + JSON.stringify(values));
+    handleSubmit(user) {
+        console.log(user);
+        alert('Login information: ' + user);
     }
 
     render(){
         return(
-            <form>
-            <h3>Sign In</h3>
+            <div className="signin">
+            <Card body outline color="success" >
+              <CardTitle tag="h5">Signin</CardTitle>
+              <CardBody>
 
-            <div className="form-group">
-                <label>Email address</label>
-                <input type="email" className="form-control" placeholder="Enter email" />
-            </div>
-
-            <div className="form-group">
-                <label>Password</label>
-                <input type="password" className="form-control" placeholder="Enter password" />
-            </div>
-
-            <div className="form-group">
-                <div className="custom-control custom-checkbox">
-                    <input type="checkbox" className="custom-control-input" id="customCheck1" />
-                    <label className="custom-control-label" htmlFor="customCheck1">Remember me</label>
-                </div>
-            </div>
-
-            <button type="submit" className="btn btn-primary btn-block">Submit</button>
-            <p className="forgot-password text-right">
-                Forgot <a href="#">password?</a>
-            </p>
-        </form>
+        <Form 
+          model="user"
+          onSubmit={(user) => this.handleSubmit(user)}
+        >
+          <FormGroup>
+          <Control.text model="user.email" id="user.email" placeholder="Email"/>
+          </FormGroup>
+          <FormGroup>
+          <Control.password model="user.password" id="user.password" placeholder="Password" />
+          </FormGroup>
+  
+          <Button color="success" type="submit">
+            Login
+          </Button>
+        </Form></CardBody></Card></div>
             
         )
     }

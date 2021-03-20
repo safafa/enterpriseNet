@@ -22,7 +22,7 @@ class Header extends Component {
             <div>
                 <Navbar color="light" light expand="md">
                     <div className="container">
-                        <NavbarToggler onClick={this.toggleNav} />
+                        <NavbarToggler onClick={this.toggleNav.bind(this)} />
                         <NavbarBrand className="mr-auto" href="/"><img src='' height="30" width="41" alt='Net Corps' /></NavbarBrand>
                         <Collapse isOpen={this.state.isNavOpen} navbar>
                             <Nav className="searchBar ml-auto" >
@@ -53,9 +53,6 @@ class Header extends Component {
                             <NavItem>
                                 <NavLink className="nav-link" to='/logout'><span className="fa fa-address-card fa-lg"></span><SignOutIcon size={24} /></NavLink>
                              </NavItem>
-                             <NavItem>
-                                <NavLink className="nav-link" to='/signup'><span className="fa fa-address-card fa-lg"></span>Signup</NavLink>
-                                </NavItem>
                             </Nav>
                          {  /* <Nav>
                                 <NavItem>
